@@ -79,8 +79,7 @@ public class SignalPanel extends javax.swing.JPanel {
                 this.s.y2 = (int)(s.phaseModulate(carrier, -xs, Scale)*yscale);
             }
             //graph for sin x/x!!
-            this.s.y  = -(int)(Math.sin(Math.pow(xs, 2))*10);
-            this.s.y2 = -(int)((Math.sin(Math.pow(xs, 2)))*10);
+            
             
             
             

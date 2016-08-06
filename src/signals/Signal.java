@@ -10,12 +10,13 @@ import javax.swing.JPanel;
  *
  * @author Roger
  */
-public class Signal {
+
+public class Signal {/*Signal*/
     double Amplitude = 500*0.001,Frequency = 500*0.001,Phase = 0;
     JPanel pan;
     int x,y,xx,yy,x2,xx2,y2,yy2;
     
-    public Signal(double Amp,double Fr,double Ph){
+    public Signal(double Amp,double Fr,double Ph){/*Signal Constructor*/
         Amplitude = Amp*(0.001);
         Frequency = Fr*(0.001);
         Phase = Ph;
@@ -42,7 +43,21 @@ public class Signal {
     public void setPan(JPanel jp){
         pan = jp;
     }
-    public int amplitudeModulate(Signal carrier,double param,double Scale){
+    
+    /**
+ * Returns instantaneous value of amplitude modulated signal.
+ * argument is a specifier that is relative to the url argument. 
+ * <p>
+ * This method is called on the modulating signal
+ * The carrier of the modulation process is specified in the parameters
+ *
+ * @param  carrier  Carrier signal
+ * @param  param value of variable x
+ * @param  Scale The Scale factor.
+ * @return      Instantaneous value of the amplitude modulated signal.
+ * @see         Signal
+ */
+    public int amplitudeModulate(Signal carrier,double param,double Scale){/*Amplitude Modulates a signal with a modulating signal*/
         return (int)-(((carrier.Amplitude*(Scale)  +  ((((Amplitude)*(Scale))*Math.sin(((2*3.14)*(param)*((Frequency)/((Scale))))+Phase))))   *   (Math.sin(((2*3.14)*(param)*((carrier.Frequency)/((Scale))))+Phase))));
     }
     public int frequencyModulate(Signal carrier,double param,double Scale){
